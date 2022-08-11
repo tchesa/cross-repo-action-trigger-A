@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: convictional/trigger-workflow-and-wait
+      - name: Trigger workflow
+        uses: convictional/trigger-workflow-and-wait@v1.6.3
         with:
           owner: tchesa
           repo: cross-repo-action-trigger
