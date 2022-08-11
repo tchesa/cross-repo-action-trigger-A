@@ -19,3 +19,4 @@ jobs:
           workflow_file_name: build.yml
           ref: master
           wait_workflow: false
+          wait_interval: 0
