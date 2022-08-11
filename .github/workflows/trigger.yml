@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger external workflow
-        run: |
-          curl -XPOST -u "${{ secrets.GIT_CREDENTIALS }}" -H "Accept:application/vnd.github" -H "Content-Type:application/json" https://api.github.com/tchesa/cross-repo-action-trigger/actions/workflows/build.yml/dispatches --data '{"ref": "main" }'
+      - uses: convictional/trigger-workflow-and-wait
+        with:
+          owner: tchesa
+          repo: cross-repo-action-trigger
+          github_token: ${{ secrets.G_ACCESS_TOKEN }}
+          workflow_file_name: build.yml
+          ref: master
+          wait_workflow: false
